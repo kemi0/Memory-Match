@@ -10,48 +10,124 @@
     body {
       height: 100vh;
       width: 100vw;
-      background-color: #8bc34a78;
+      /* background-color: #8bc34a78; */
       font-size: 14px;
-      font-family: 'IM Fell English SC', serif;
-    }
+      font-family: 'Roboto', sans-serif;
+      background-image: url('../assets/background2same.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      text-shadow:
+            3px 3px 0 #000,
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
+      /* filter: blur(8px); */
+
+      /* z-index: 2; */
+     }
 
     /* /---------------------/
        ***** HEADER  *****
     /---------------------/ */
 
-    header {
-      width: 100%;
-      height: 20%;
-      background-color: lightblue;
+    .header-container {
+      display: flex;
+      flex-direction: column;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+      padding: 1.3em 0;
+      /* width: 100%;
+      height: 15%; */
+      /* background-color: lightblue; */
+      /* color: white; */
+      background-color:rgba(0, 0, 0, 0);
+    }
+    .logo{
+      margin-left: 5%;
+    }
+    .logo img {
+      display: block;
+    }
+    nav{
+      margin: 1.5em 0 0 5%;
+    }
+    header ul li{
+      display: inline-block;
+      padding: 0 1.4em 0 0; 
+      font-size: 3vmin;
+      
+    }
+    header ul li a {
+      text-decoration: none;
       color: white;
     }
+    li a.active{
+      color: #0000000;
+      /* border-bottom: 2px solid #0000000; */
+      font-weight: 800;
+    }
+    li a:hover{
+      color: blue;
+    }
+ 
+    .title-font{
+        color: white;
+        font-size: 8vmin;
+        font-weight: 900;
+    }
 
+    /* .nav {
+     
+    } */
+    /* a {
+      text-decoration: none;
+      color: white;
+      
+    }
+    div{
+      /* height: 10h;
+      width: 10vw; */
+    /* } */
+    /* div > img{
+      /* height: 10vh; */
+      /* width: 10vw; */
+    /* }   */
+    
     /* /---------------------/
     *** MAIN CONTENT / STATS  ***
      /---------------------/ */
-/* always set the body content/page content to flex in order to utlize it */
+
+    /* always set the body content/page content to flex in order to utlize it */
+
     .body-content {
       display: flex;
       height: 85%;
       width: 100%;
     }
-
+/* // fix stats container */
     .stats-container {
-      padding-top: 5%;
-      width: 20%;
-      height: 100%;
-      background-color: black;
+      padding-top: 3vh;
+      width: 15%;
+      height: 74%;
       color: lightblue;
+      background-color:rgba(0, 0, 0, 0.4);
+      border-radius: 50px;
     }
 
     .stats-container .label, .stats-container .value, .stats-container button {
       margin: 6% 10% 6% 10%;
       font-size: 5vh;
       font-weight: bold;
+      white-space: normal;
+      word-wrap: wrap;
+      text-align: center;
+      /* white-space: nowrap; */
+      /* text-overflow: ellipsis; */
+      /* overflow: hidden; */
     }
 
     #game-area {
-      border: 1px solid black;
+      /* border: 1px solid black; */
       width: 70%;
       height: 100%;
       display: flex;
@@ -63,25 +139,83 @@
     /* /---------------------/
     ***** CARD SETUP  *****
     /---------------------/ */
+
     /* set width, height properties for card */
+
     .card {
       height: 30%;
       width: 15%;
       position: relative;
       cursor: pointer;
     }
-  /* let the child equal the total % of its parent */
+
+    /* let the child equal the total % of its parent */
+
     .front, .back {
       height: 100%;
       width: 100%;
       position: absolute;
       cursor: pointer;
     }
-/* set the sibling?? to equal its parent also */
+
+    /* set the sibling?? to equal its parent also */
+
     .front img, .back img {
       height: auto;
       width: 100%;
     }
-  .card {
-    transform: rotateY(180deg);
-  }
+
+    .card {
+      transform: rotateY(180deg);
+    }
+
+    .hidden>.back {
+      display: none;
+    }
+
+    .click-disabled {
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+    .title a{
+      padding-top: 2%;
+      margin: 2%;
+      font-size: 7vh;
+    }
+    .unclickableAll {
+      pointer-events: none;
+    }
+    .unclickable {
+      pointer-events: none;
+    }
+    div .value {
+      height: 3vh;
+      width: 3vw;
+    }
+
+    ul>li>a {
+      list-style-type: none;
+      margin: 2%;
+      font-size: 2vh;
+    }
+    div > .front {
+      overflow: hidden;
+    }
+      /* /---------------------/
+    ***** MEDIA QUERIES *****
+    /---------------------/ */
+  
+    @media only screen and (min-width: 600px) {
+      .header-container {
+            flex-direction: row;
+            justify-content: space-between;
+
+      }
+      .logo {
+        margin-left: 2.3em;
+      }
+      nav {
+        align-self: center;
+        margin: 0 0.8em 0 0;
+      }
+    }
