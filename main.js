@@ -1,16 +1,9 @@
-// var bgm = new Audio('clashRoyale.mp3');
-
 $(document).ready(function() {
-
-// loading the document 
 
 
 
   initializeApp()
   createCards(imageArray);
-  // bgm.play();
-
-  // // duration();
 });
 
 
@@ -22,24 +15,12 @@ function initializeApp() {
   console.log('card has been clicked');
   console.log('the dom is loaded');
 }
-// function duration()
-// {
-//     var audio = document.getElementById("audio-element");
-//     if(audio.readyState > 0)
-//     {
-//         var minutes = parseInt(audio.duration / 60, 10);
-//         var seconds = parseInt(audio.duration % 60);
-
-//         alert(minutes+":"+seconds);
-//     }
-// }
-
 
 // storing values to null to be changed later
 
 var firstCardClicked = null;
 var secondCardClicked = null;
-var total_possible_match = 9;
+var total_possible_match = 1;
 var match_counter = 0;
 var attempts = 0;
 var accuracy = 0;
@@ -85,7 +66,8 @@ function handleClick() {
           // if the number of cards matched is equal to num of matches 
           // show win modal 
       if (match_counter === total_possible_match) {
-        setTimeout(winAlert, 1000);
+        console.log("got match");
+        setTimeout(winModal, 1000);
         // resetGame()
       }
     } else {
@@ -102,7 +84,7 @@ function handleClick() {
 
 function displayAccuracy() {
   
-  accuracy = parseFloat(accuracy*100).toFixed(2);
+  accuracy = parseFloat(accuracy*100).toFixed(0);
   $('.accuracy .value').text(accuracy+"%");
 }
 
@@ -135,10 +117,10 @@ function imageCardName(card) {
 function playAudio() {
   console.log("dam we are close", playAudio);
   var audio = document.getElementById("audio");
+  audio.loop = true;
   if(audio.paused) {
     audio.play();
   }else {
-    // audio.pause();
     audio.currentTime = 0
   }
 }
@@ -149,10 +131,6 @@ function hideCard(card) {
 
 function showCardBack(card) {
   $(card).removeClass("hidden");
-}
-//
-function winAlert() {
-  alert('you win');
 }
 
 function resetCard() {
@@ -169,7 +147,6 @@ function resetGame() {
   reset_stats();
   playAudio();
   console.log('audio playing:', playAudio);
-  // location.reload(true);
 }
 
 function removeImg() {
@@ -207,15 +184,34 @@ function displayAttempts() {
 $(".attempts .value").text(attempts)
 }
 
-// funciton playAudio() {
-//   var audio = new Audio();
-//   var play
-// } 
+function winModal() {
+  // Get the modal
+  var modal = $('#id01')[0];
+  modal.style.display = "block";
 
-// function playAudio() {
-//   $('.clashOfRoyale-theme').on('click', )
-// }
-// array to hold cards to be dynamically created
+  $('.modal-content').css('background-image', 'url("./assets/giphy.gif")');
+  $('.modal-footer').text('');
+   
+  //if want to add text to modal you will need to clear and create dont delete below
+  // var p = $('<p></p>');
+  // var br = $(" <br />")
+  // var img = $("<img>").addClass('winGif').attr('src', './assets/giphy.gif');
+  // var winningText = [img];
+
+
+  // $('#id01').append(img);
+
+  var btn = $("<button>")
+      .text("Restart Game")
+      .addClass("close");
+  $('.modal-footer').append(btn);
+  $('.modal-footer').on("click", btn, function() {
+      location.reload();
+  });
+}
+
+
+// array of cards to be dynamically created
 var imageArray = [
   'clashOfRoyale/card1.png',
   'clashOfRoyale/card2.png',
