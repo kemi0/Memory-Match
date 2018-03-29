@@ -205,7 +205,11 @@
     .front img, .back img {
       height: auto;
       width: 100%;
-      transform: scale(1.1);
+      /* transform: scale(1.1); */
+    }
+    /* have img scale to the size of container */
+    .front img{
+      transform: scale(0.9);
     }
 
     .card {
@@ -241,8 +245,9 @@
       margin: 2%;
       font-size: 3vh;
     }
+    /* want img to show inside/ even if it does not fit  */
     div > .front {
-      overflow: hidden;
+      /* overflow: hidden; */
     }
       /* /---------------------/
        ***** MEDIA QUERIES *****

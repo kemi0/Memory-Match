@@ -146,7 +146,6 @@ function resetGame() {
   resetCard();
   reset_stats();
   playAudio();
-  console.log('audio playing:', playAudio);
 }
 
 function removeImg() {
