@@ -1,14 +1,11 @@
 $(document).ready(function() {
 
 
-
   initializeApp()
   createCards(imageArray);
 });
 
 
-// click handlers have been added and being called 
-// in the document ready function
 function initializeApp() {
   $("#game-area").on('click', ".card", handleClick);
   $('.btn-1').on('click', resetGame);
@@ -16,7 +13,7 @@ function initializeApp() {
   console.log('the dom is loaded');
 }
 
-// storing values to null to be changed later
+// set value to null to be changed later
 
 var firstCardClicked = null;
 var secondCardClicked = null;
@@ -28,8 +25,6 @@ var game_played = 0;
 var counter = 0;
 
 
-// handle click is handling the major game flow also being called 
-// in intitalize app 
 
 function handleClick() {
 
@@ -39,13 +34,11 @@ function handleClick() {
   console.log("card was clicked");
 
   if (firstCardClicked === null) {
-    // get the first card clicked
-    // store the refrence of the clicked card
+
     firstCardClicked = this;
     $(firstCardClicked).addClass('unclickable');
   } else {
-    // we're on our secound card click
-    // store refrence
+
     secondCardClicked = this;
     attempts++;
   
@@ -54,36 +47,29 @@ function handleClick() {
     var second_img_name = imageCardName(this);
     var first_img_name = imageCardName(firstCardClicked);
 
-    // if image1 src is equal to image2 src
     if (first_img_name === second_img_name) {
       $(secondCardClicked).addClass('unclickable');
       match_counter++;
       accuracy = match_counter / attempts;
       console.log("match counter:", match_counter);
       removeImg();
-
       resetCards();
-          // if the number of cards matched is equal to num of matches 
-          // show win modal 
+
       if (match_counter === total_possible_match) {
         console.log("got match");
         setTimeout(winModal, 1000);
-        // resetGame()
       }
     } else {
-      // we are her because cards did not match
       accuracy = match_counter / attempts;
       $(".card").addClass("unclickableAll")
       setTimeout(flippedCard, 500);
 
     }
-    // update accuracy
     displayAccuracy();
   }
 }
 
 function displayAccuracy() {
-  
   accuracy = parseFloat(accuracy*100).toFixed(0);
   $('.accuracy .value').text(accuracy+"%");
 }
@@ -100,12 +86,10 @@ function disableClick(card) {
   $('#game-area').click(false);
 }
 
-// reseting the cards
 function resetCards() {
   firstCardClicked = null;
   secondCardClicked = null;
 }
-//storing the img source
 function imageCardName(card) {
   var src = $(card)
   var src = $(card).find(".front  img").attr('src');
@@ -124,7 +108,6 @@ function playAudio() {
     audio.currentTime = 0
   }
 }
-
 function hideCard(card) {
   $(card).addClass("hidden");
 }
@@ -139,7 +122,6 @@ function resetCard() {
     showCardBack(cards[i]);
   }
 }
-
 function resetGame() {
   game_played++;
   resetCards()
@@ -184,22 +166,12 @@ $(".attempts .value").text(attempts)
 }
 
 function winModal() {
-  // Get the modal
   var modal = $('#id01')[0];
   modal.style.display = "block";
 
   $('.modal-content').css('background-image', 'url("./assets/giphy.gif")');
   $('.modal-footer').text('');
    
-  //if want to add text to modal you will need to clear and create dont delete below
-  // var p = $('<p></p>');
-  // var br = $(" <br />")
-  // var img = $("<img>").addClass('winGif').attr('src', './assets/giphy.gif');
-  // var winningText = [img];
-
-
-  // $('#id01').append(img);
-
   var btn = $("<button>")
       .text("Restart Game")
       .addClass("close");
@@ -209,8 +181,6 @@ function winModal() {
   });
 }
 
-
-// array of cards to be dynamically created
 var imageArray = [
   'clashOfRoyale/card1.png',
   'clashOfRoyale/card2.png',
@@ -225,33 +195,25 @@ var imageArray = [
 
 var cards = [];
 
-//create cards dynamically
 function createCards(images) {
   console.log('card created');
   images = images.concat(images);
   for (var i = 0; i < images.length; i++) {
-    // storing / creating card element 
     var newCard = $('<div>').addClass('card');
     var frontDiv = $('<div>').addClass('front');
     var backDiv = $('<div>').addClass('back');
-    // front images are provided by the array
     var frontImgSrc = images[i];
     var frontImg = $('<img>').attr('src', frontImgSrc);
-    // adding back images onto card change here to change card back
     var backImg = $('<img>').attr('src', 'clashOfRoyale/cardBack.png');
-    // appending using $() wrapper method
     $(backDiv).append(backImg);
     $(frontDiv).append(frontImg);
     $(newCard).append(frontDiv, backDiv);
-    // must append to an element on the dom
     $('#game-area').append(newCard);
     cards.push(newCard)
   }
   shuffleCards(cards);
 }
-// adding cards to game area randomly
-// passing in cards array 
-// splice is removing one card from the array
+
 function shuffleCards(cards) {
   while (cards.length > 0) {
     var randomCardNum = Math.floor(Math.random() * cards.length);
