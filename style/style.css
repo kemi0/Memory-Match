@@ -96,7 +96,7 @@
       color: white;
     }
     li a.active{
-      color: #0000000;
+      color: #000;
       font-weight: 800;
     }
     li a:hover{
@@ -213,17 +213,15 @@
       margin: 2%;
       font-size: 3vh;
     }
-    div > .front {
-      /* overflow: hidden; */
-    }
+   
       /* /---------------------/
        ***** MEDIA QUERIES *****
       /---------------------/ */
   
     @media only screen and (min-width: 600px) {
       .header-container {
-            flex-direction: row;
-            justify-content: space-between;
+          flex-direction: row;
+          justify-content: space-between;
 
       }
       .logo {
@@ -235,9 +233,9 @@
       }
     }
 
-    @media only screen and (min-width: 600px) {
+    /* @media only screen and (min-width: 600px) {
       
-    }
+    } */
 
      /* /---------------------/
        ***** MODAL CONTENT *****
