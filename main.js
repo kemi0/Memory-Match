@@ -17,7 +17,7 @@ function initializeApp() {
 
 var firstCardClicked = null;
 var secondCardClicked = null;
-var total_possible_match = 1;
+var total_possible_match = 9;
 var match_counter = 0;
 var attempts = 0;
 var accuracy = 0;
