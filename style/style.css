@@ -72,7 +72,8 @@
 
     .header-container {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      justify-content: space-between;
       padding: 1.3em 0;
       background-color:rgba(0, 0, 0, 0);
     }
@@ -218,24 +219,48 @@
        ***** MEDIA QUERIES *****
       /---------------------/ */
   
-    @media only screen and (min-width: 600px) {
+    @media only screen and (max-width: 600px) {
+      .body-content{
+        align-items: center;
+        flex-direction: column;
+        height: 51%;
+      }
+      .stats-container{
+        display: flex;
+        height: 22%;
+        border-radius: 0px;
+        width: 69%;
+        text-align: center;
+      }
+      .title-font{
+        text-align: center;
+      }
+      .game-area{
+        height: 78%;
+      }
+      .card{
+        height: 16%;
+      }
+      .stats-container .label, .stats-container button{
+        font-size: 3vh;
+      }
       .header-container {
-          flex-direction: row;
+          flex-direction: column;
           justify-content: space-between;
 
       }
       .logo {
-        margin-left: 2.3em;
+        /* margin-left: 2.3em; */
+        text-align: center;
+      }
+      .logo img{
+        display: initial;
       }
       nav {
-        align-self: center;
-        margin: -3.5em 0.8em 0 0;
+        text-align: center;
+        margin: 0.5em 0 0 5%;
       }
     }
-
-    /* @media only screen and (min-width: 600px) {
-      
-    } */
 
      /* /---------------------/
        ***** MODAL CONTENT *****
