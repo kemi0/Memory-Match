@@ -223,20 +223,26 @@
       .body-content{
         align-items: center;
         flex-direction: column;
-        height: 51%;
+        height: 48%;
       }
       .stats-container{
         display: flex;
-        height: 22%;
+        height: 30%;
+        min-height: 12vh;
         border-radius: 0px;
-        width: 69%;
+        width: 75%;
         text-align: center;
+        padding-top: 1vh;
+      }
+      .stats-container>* {
+        width:25%;
       }
       .title-font{
         text-align: center;
       }
       .game-area{
         height: 78%;
+        width:
       }
       .card{
         height: 16%;
