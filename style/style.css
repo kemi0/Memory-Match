@@ -1,8 +1,6 @@
     /*/---------------------/
      ***** BASIC SETUP *****
      /---------------------/*/
-    /* clean up UX on btn close modal  todo    */
-    /* unfinished about page */
     * {
       margin: 0;
       padding: 0;
@@ -36,7 +34,6 @@
       height: 100vh;
 
     }
-      /* set postioning and display flex (also need image src) */
      .aboutPage{
      background-image: url('../assets/aboutbg.jpg');
      background-color: rgba(0, 0, 0, 0.877);
@@ -78,9 +75,11 @@
       background-color:rgba(0, 0, 0, 0);
     }
     .logo{
-      margin-left: 5%;
+      width: 16%;
+      margin-left: 3%;
     }
     .logo img {
+      width: 100%;
       display: block;
     }
     nav{
@@ -108,6 +107,7 @@
         color: white;
         font-size: 8vmin;
         font-weight: 900;
+        padding-top: 5vh;
     }
    
     /*/---------------------/
@@ -116,7 +116,7 @@
 
     .body-content {
       display: flex;
-      height: 76%;
+      height: 73%;
       width: 100%;
     }
     .stats-container {
@@ -225,6 +225,9 @@
         flex-direction: column;
         height: 48%;
       }
+      .title-font{
+        padding-top: 0px;
+      }
       .stats-container{
         display: flex;
         height: 30%;
@@ -237,30 +240,38 @@
       .stats-container>* {
         width:25%;
       }
+      .btn-1{
+        border-radius: 0px;
+      }
       .title-font{
         text-align: center;
       }
       .game-area{
         height: 78%;
-        width:
+      }
+      .logo,
+      .logo img{
+        align-items: center;
       }
       .card{
         height: 16%;
       }
-      .stats-container .label, .stats-container button{
-        font-size: 3vh;
+      .stats-container .label,
+      .stats-container button,
+      .stats-container .value{
+        font-size: 2vh;
       }
       .header-container {
           flex-direction: column;
           justify-content: space-between;
-
+          align-items: center;
       }
       .logo {
-        /* margin-left: 2.3em; */
         text-align: center;
+        width: 25vh;
       }
       .logo img{
-        display: initial;
+        align-items: center;
       }
       nav {
         text-align: center;
