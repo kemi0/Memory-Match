@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
 
+  
   initializeApp()
   createCards(imageArray);
 });
@@ -9,15 +10,12 @@ $(document).ready(function() {
 function initializeApp() {
   $("#game-area").on('click', ".card", handleClick);
   $('.btn-1').on('click', resetGame);
-  console.log('card has been clicked');
-  console.log('the dom is loaded');
 }
 
-// set value to null to be changed later
 
 var firstCardClicked = null;
 var secondCardClicked = null;
-var total_possible_match = 9;
+var total_possible_match = 1;
 var match_counter = 0;
 var attempts = 0;
 var accuracy = 0;
@@ -29,9 +27,6 @@ var counter = 0;
 function handleClick() {
 
   hideCard(this);
-
-
-  console.log("card was clicked");
 
   if (firstCardClicked === null) {
 
@@ -51,12 +46,10 @@ function handleClick() {
       $(secondCardClicked).addClass('unclickable');
       match_counter++;
       accuracy = match_counter / attempts;
-      console.log("match counter:", match_counter);
       removeImg();
       resetCards();
 
       if (match_counter === total_possible_match) {
-        console.log("got match");
         setTimeout(winModal, 1000);
       }
     } else {
@@ -99,10 +92,9 @@ function imageCardName(card) {
   return name;
 }
 function playAudio() {
-  console.log("dam we are close", playAudio);
   var audio = document.getElementById("audio");
   audio.loop = true;
-  if(audio.paused) {
+  if(audio.paused !== false) {
     audio.play();
   }else {
     audio.currentTime = 0
@@ -196,7 +188,6 @@ var imageArray = [
 var cards = [];
 
 function createCards(images) {
-  console.log('card created');
   images = images.concat(images);
   for (var i = 0; i < images.length; i++) {
     var newCard = $('<div>').addClass('card');
