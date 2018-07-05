@@ -10,6 +10,7 @@ $(document).ready(function() {
 function initializeApp() {
   $("#game-area").on('click', ".card", handleClick);
   $('.btn-1').on('click', resetGame);
+  // $('#music').on('click', musicControl)
 }
 
 
@@ -212,3 +213,31 @@ function shuffleCards(cards) {
     cards.splice(randomCardNum, 1);
   }
 }
+// function myFunction() {
+//   document.getElementById("myDropdown").classList.toggle("show");
+// }
+
+
+// window.onclick = function(event) {
+// if (!event.target.matches('.dropbtn')) {
+
+//   var dropdowns = document.getElementsByClassName("dropdown-content");
+//   var i;
+//   for (i = 0; i < dropdowns.length; i++) {
+//     var openDropdown = dropdowns[i];
+//     if (openDropdown.classList.contains('show')) {
+//       openDropdown.classList.remove('show');
+//     }
+//   }
+// }
+// }
+// function musicControl(){
+//   if($('#music').text() === 'Music Off'){
+//       gameData.themeAudio.muted = true;
+//       $('#music').text('Music On')
+//   }else if($('#music').text() === 'Music On'){
+//       gameData.themeAudio.muted = false;
+//       $('#music').text('Music Off')
+//   }
+// }
+ 
