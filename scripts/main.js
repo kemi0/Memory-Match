@@ -16,7 +16,7 @@ function initializeApp() {
 
 var firstCardClicked = null;
 var secondCardClicked = null;
-var total_possible_match = 1;
+var total_possible_match = 9;
 var match_counter = 0;
 var attempts = 0;
 var accuracy = 0;
@@ -175,15 +175,15 @@ function winModal() {
 }
 
 var imageArray = [
-  'clashOfRoyale/card1.png',
-  'clashOfRoyale/card2.png',
-  'clashOfRoyale/card3.png',
-  'clashOfRoyale/card4.png',
-  'clashOfRoyale/card5.png',
-  'clashOfRoyale/card6.png',
-  'clashOfRoyale/card7.png',
-  'clashOfRoyale/card8.png',
-  'clashOfRoyale/card9.png'
+  'assets/cards/clashOfRoyale/card1.png',
+  'assets/cards/clashOfRoyale/card2.png',
+  'assets/cards/clashOfRoyale/card3.png',
+  'assets/cards/clashOfRoyale/card4.png',
+  'assets/cards/clashOfRoyale/card5.png',
+  'assets/cards/clashOfRoyale/card6.png',
+  'assets/cards/clashOfRoyale/card7.png',
+  'assets/cards/clashOfRoyale/card8.png',
+  'assets/cards/clashOfRoyale/card9.png'
 ];
 
 var cards = [];
@@ -196,7 +196,7 @@ function createCards(images) {
     var backDiv = $('<div>').addClass('back');
     var frontImgSrc = images[i];
     var frontImg = $('<img>').attr('src', frontImgSrc);
-    var backImg = $('<img>').attr('src', 'clashOfRoyale/cardBack.png');
+    var backImg = $('<img>').attr('src', 'assets/cards/clashOfRoyale/cardBack.png');
     $(backDiv).append(backImg);
     $(frontDiv).append(frontImg);
     $(newCard).append(frontDiv, backDiv);
@@ -213,31 +213,3 @@ function shuffleCards(cards) {
     cards.splice(randomCardNum, 1);
   }
 }
-// function myFunction() {
-//   document.getElementById("myDropdown").classList.toggle("show");
-// }
-
-
-// window.onclick = function(event) {
-// if (!event.target.matches('.dropbtn')) {
-
-//   var dropdowns = document.getElementsByClassName("dropdown-content");
-//   var i;
-//   for (i = 0; i < dropdowns.length; i++) {
-//     var openDropdown = dropdowns[i];
-//     if (openDropdown.classList.contains('show')) {
-//       openDropdown.classList.remove('show');
-//     }
-//   }
-// }
-// }
-// function musicControl(){
-//   if($('#music').text() === 'Music Off'){
-//       gameData.themeAudio.muted = true;
-//       $('#music').text('Music On')
-//   }else if($('#music').text() === 'Music On'){
-//       gameData.themeAudio.muted = false;
-//       $('#music').text('Music Off')
-//   }
-// }
- 
