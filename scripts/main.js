@@ -10,7 +10,6 @@ $(document).ready(function() {
 function initializeApp() {
   $("#game-area").on('click', ".card", handleClick);
   $('.btn-1').on('click', resetGame);
-  // $('#music').on('click', musicControl)
 }
 
 
