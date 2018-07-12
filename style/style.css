@@ -110,7 +110,7 @@
         color: white;
         font-size: 8vmin;
         font-weight: 900;
-        padding-top: 5vh;
+        padding-top: 3vh;
     }
    
     /*/---------------------/
@@ -121,6 +121,7 @@
       display: flex;
       height: 73%;
       width: 100%;
+      align-items: flex-start;
     }
     .stats-container {
       padding-top: 3vh;
@@ -160,6 +161,7 @@
       justify-content: space-around;
       flex-flow: row wrap;
       align-content: space-around;
+      /* flex-shrink: 0; */
     }
 
     /* /---------------------/
@@ -176,13 +178,16 @@
     .front, .back {
       height: 100%;
       width: 100%;
-      position: absolute;
       cursor: pointer;
     }
 
     .front img, .back img {
       height: auto;
       width: 100%;
+    }
+    .back {
+      position: absolute;
+      top: 0;
     }
     .front img{
       transform: scale(0.9);
@@ -222,7 +227,7 @@
        ***** MEDIA QUERIES *****
       /---------------------/ */
   
-    @media only screen and (max-width: 800px) {
+    @media only screen and (max-width: 900px) {
       .body-content{
         align-items: center;
         flex-direction: column;
